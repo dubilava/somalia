@@ -82,11 +82,7 @@ gg_tf <- ggplot(crop_dt,aes(x=tv,y=G_tv))+
   theme_classic()+
   theme(axis.title = element_text(size=12), axis.text = element_text(size=10),legend.title = element_blank(),legend.text = element_text(size=8),legend.position = "none")
 
-gg_tf
-
-# ggsave("transition.png",gg_tf,width=6.5,height=3.5)
-
-ggsave(paste("Figures/Transition_Function_",tvr,"_",crop,".png",sep=""),gg_tf,width=6.5,height=3.5)
+ggsave("transition.png",gg_tf,width=6.5,height=3.5)
 
 
 # run this loop to generate dyad specific figures (not included in paper)
@@ -125,10 +121,7 @@ for(i in 1:length(unique(crop_dt$Dyad))){
     theme_classic()+
     theme(axis.title = element_text(size=12), axis.text = element_text(size=10),legend.title = element_blank(),legend.text = element_text(size=8),legend.position = "none")
   
-  # ggsave(paste(substr(dt$Market1[1],1,3),"_",substr(dt$Market2[1],1,3),".png",sep=""),gg_dyad,width=6.5,height=3.5)
-  
-  ggsave(paste("Figures/Dyad/",tvr,"_",crop,"_",substr(dt$Market1[1],1,3),"-",substr(dt$Market2[1],1,3),".png",sep=""),gg_dyad,width=6.5,height=3.5)
+  ggsave(paste(substr(dt$Market1[1],1,3),"_",substr(dt$Market2[1],1,3),".png",sep=""),gg_dyad,width=6.5,height=3.5)
   
 }
-
 
