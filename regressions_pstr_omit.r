@@ -296,4 +296,5 @@ gc2 <- ggplot(markt_long,aes(x=pos,y=var)) +
 
 gg_comb <- plot_grid(gg1,gc1,gc2,align="v",ncol=1,rel_heights=c(12,6,10))
 
+## Figure 
 ggsave("sensitivity.png",ggcomb,width=6.5,height=6.5)
