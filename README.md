@@ -1,6 +1,6 @@
 # Replication Material
 
-This repository hosts the data and R codes for the paper "Price Transmission in Conflict–Affected States: Evidence from Cereal Markets of Somalia," joint work with Justin Hastings, Sarah Phillips, and Andrey Vasnev.
+This repository hosts the data and R codes for the paper "Price Transmission in Conflict--Affected States: Evidence from Cereal Markets of Somalia," joint work with Justin Hastings, Sarah Phillips, and Andrey Vasnev.
 
 The codes should run with no issue and replicate the results of the study as long as all the supplied material (i.e., the data file as well as the R codes) are stored in the same folder.
 
