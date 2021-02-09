@@ -21,3 +21,6 @@ dataset.RData contains all the data needed to replicate the results of the study
 - regressions_pstr_omit.r generates Figure 3
 - mysript.r is an auxiliary file that contains a function to estimate the PSTR model, used in regressions_pstr.r and regressions_pstr_omit.r
 
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
