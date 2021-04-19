@@ -6,6 +6,7 @@ library(lubridate)
 library(dummies)
 library(devtools)
 library(tibble)
+library(backports)
 # install_github("yukai-yang/PSTR")
 library(PSTR)
 
@@ -52,6 +53,18 @@ m.inter <- summary(maize.fe)
 
 sorghum.fe <- feols(y~x:I(1-s1bar)+x:s1bar+w1+w2  | Dyad+Month, combined_dt[Crop=="Sorghum"])
 s.inter <- summary(sorghum.fe)
+
+##-------------------------------------------------------------------------
+## to obtain statistical significance in the difference between the regimes
+rice.fe <- feols(y~x+x:s1bar+w1+w2 | Dyad+Month, combined_dt[Crop=="Rice"])
+r.inter.d <- summary(rice.fe)
+
+maize.fe <- feols(y~x+x:s1bar+w1+w2  | Dyad+Month, combined_dt[Crop=="Maize"])
+m.inter.d <- summary(maize.fe)
+
+sorghum.fe <- feols(y~x+x:s1bar+w1+w2  | Dyad+Month, combined_dt[Crop=="Sorghum"])
+s.inter.d <- summary(sorghum.fe)
+##-------------------------------------------------------------------------
 
 ## Table 4.c
 interacted_tab <- etable(r.inter,m.inter,s.inter,drop=c("w1","w2"))
@@ -101,6 +114,12 @@ if(length(pstr_coef)==2){
 # monthly dummy variables
 crop.fe <- feols(y~x:I(1-G_tv)+x:G_tv+w1+w2 | Dyad+Month, crop_dt)
 r.pstr <- summary(crop.fe)
+
+##-------------------------------------------------------------------------
+## to obtain statistical significance in the difference between the regimes
+rice.fe <- feols(y~x+x:G_tv+w1+w2 | Dyad+Month, crop_dt)
+r.pstr.d <- summary(rice.fe)
+##-------------------------------------------------------------------------
 
 ## Table 4.b
 pstr_tab <- etable(r.pstr,drop=c("w1","w2"))
