@@ -8,14 +8,14 @@ library(rnaturalearthdata)
 rm(list=ls())
 gc()
 
-world <- ne_countries(scale="medium",returnclass="sf")
+world <- ne_countries(scale="large",returnclass="sf")
 horn <- subset(map_data("world"),region %in% c("Kenya","Tanzania","Sudan","Ethiopia","Eritrea","Djibouti"))
 somalia <- subset(map_data("world"),region %in% c("Somalia"))
 
 load("dataset.RData")
 
 # create the buffer around the trade routes
-trade_routes_bf <- st_buffer(trade_routes_sf,dist=.2)
+trade_routes_bf <- st_buffer(trade_routes_sf,dist=20000)
 
 # conflict data (selecting the three categories used in the analysis)
 incidents_dt <- conflict_dt[Event %in% c("Battles","Explosions/Remote violence","Violence against civilians")]
